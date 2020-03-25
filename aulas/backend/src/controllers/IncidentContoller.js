@@ -1,8 +1,8 @@
-const connection = require('../database/connection');
+import connection from '../database/connection';
 
-module.exports = {
-  async create(req, res){
-    const {title, description, value} = req.body;
+class IncidentController {
+  async create(req, res) {
+    const { title, description, value } = req.body;
     const ong_id = req.headers.authorization;
 
     const [id] = await connection('incidents').insert({
@@ -12,11 +12,11 @@ module.exports = {
       ong_id,
     });
 
-    return res.json({id})
-  },
+    return res.json({ id });
+  }
 
-  async index(req, res){
-    const {page = 1} = req.query;
+  async index(req, res) {
+    const { page = 1 } = req.query;
 
     const [count] = await connection('incidents').count();
 
@@ -24,15 +24,22 @@ module.exports = {
       .join('ongs', 'ongs.id', '=', 'incidents.ong_id')
       .limit(5)
       .offset((page - 1) * 5)
-      .select(['incidents.*', 'ongs.name', 'ongs.email', 'ongs.whatsapp', 'ongs.city', 'ongs.uf']);
+      .select([
+        'incidents.*',
+        'ongs.name',
+        'ongs.email',
+        'ongs.whatsapp',
+        'ongs.city',
+        'ongs.uf',
+      ]);
 
-    res.header('X-Total-Count', count['count(*)'])
+    res.header('X-Total-Count', count['count(*)']);
 
     return res.json(incidents);
-  },
+  }
 
-  async delete(req, res){
-    const {id} = req.params;
+  async delete(req, res) {
+    const { id } = req.params;
     const ong_id = req.headers.authorization;
 
     const incident = await connection('incidents')
@@ -40,12 +47,12 @@ module.exports = {
       .select('ong_id')
       .first();
 
-    if(!incident){
-      return res.status(404).json({Error: "Not found!"})
+    if (!incident) {
+      return res.status(404).json({ Error: 'Not found!' });
     }
 
-    if(incident.ong_id !== ong_id){
-      return res.status(401).json({Error: "Oparation not permited!"});
+    if (incident.ong_id !== ong_id) {
+      return res.status(401).json({ Error: 'Oparation not permited!' });
     }
 
     await connection('incidents').where('id', id).delete();
@@ -53,3 +60,5 @@ module.exports = {
     return res.status(204).send();
   }
 }
+
+export default new IncidentController();
