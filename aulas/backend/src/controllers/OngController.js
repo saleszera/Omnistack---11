@@ -1,9 +1,9 @@
-const crypto = require('crypto');
-const connection = require('../database/connection');
+import crypto from 'crypto';
+import connection from '../database/connection';
 
-module.exports = {
+class OngController {
   async create(req, res) {
-    const {name, email, whatsapp, city, uf} = req.body;
+    const { name, email, whatsapp, city, uf } = req.body;
 
     const id = crypto.randomBytes(4).toString('HEX');
 
@@ -13,14 +13,21 @@ module.exports = {
       email,
       whatsapp,
       city,
-      uf
-    })
+      uf,
+    });
 
-    return res.json({id});
-  },
-  async index(req, res){
-    const ongs = await connection('ongs').select('*');
+    return res.json({ id });
+  }
+
+  async index(req, res) {
+    const { page = 1 } = req.query;
+    const ongs = await connection('ongs')
+      .limit(5)
+      .offset((page - 1) * 5)
+      .select('*');
 
     return res.json(ongs);
   }
 }
+
+export default new OngController();
