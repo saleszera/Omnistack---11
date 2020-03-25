@@ -5,6 +5,17 @@ class OngController {
   async create(req, res) {
     const { name, email, whatsapp, city, uf } = req.body;
 
+    const ong = await connection('ongs')
+      .where('name', name)
+      .select('*')
+      .first();
+
+    console.log(ong);
+
+    if (ong) {
+      return res.status(400).json({ Error: 'ONG already exists!' });
+    }
+
     const id = crypto.randomBytes(4).toString('HEX');
 
     await connection('ongs').insert({
