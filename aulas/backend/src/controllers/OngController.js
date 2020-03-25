@@ -39,6 +39,25 @@ class OngController {
 
     return res.json(ongs);
   }
+
+  async delete(req, res) {
+    const ong_id = req.headers.authorization;
+    const { id } = req.params;
+
+    const ong = await connection('ongs').where('id', id).select('id').first();
+    console.log(ong);
+    if (!ong) {
+      return res.status(404).json({ Error: 'Not found!' });
+    }
+
+    if (ong.id !== ong_id) {
+      return res.status(401).json({ Error: 'Oparation not permited!' });
+    }
+
+    await connection('ongs').where('id', ong_id).delete();
+
+    return res.status(204).send();
+  }
 }
 
 export default new OngController();
