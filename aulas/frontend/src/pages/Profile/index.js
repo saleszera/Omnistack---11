@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { FiPower, FiTrash2 } from 'react-icons/fi';
+import { FiPower, FiTrash2, FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 
 import api from '../../services/api';
 
@@ -20,16 +20,17 @@ export default function Profile() {
   }
 
   const [incidents, setIncidents] = useState([]);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     api
-      .get('profile', {
+      .get(`profile?page=${page}`, {
         headers: {
           Authorization: ongId,
         },
       })
       .then((response) => setIncidents(response.data));
-  }, [ongId]);
+  }, [page]);
 
   async function handleDeleteIncident(id) {
     try {
@@ -50,6 +51,13 @@ export default function Profile() {
 
     history.push('/');
   }
+
+  function handleClick(action) {
+    const nextPage = action === 'back' ? page - 1 : page + 1;
+    setPage(nextPage);
+  }
+
+  console.log(page);
 
   return (
     <div className="profile-container">
@@ -91,6 +99,18 @@ export default function Profile() {
           </li>
         ))}
       </ul>
+      <div className="button-container">
+        <button
+          type="button"
+          onClick={() => handleClick('back')}
+          disabled={page < 2}
+        >
+          <FiArrowLeft size={25} />
+        </button>
+        <button type="button">
+          <FiArrowRight size={25} onClick={() => handleClick('next')} />
+        </button>
+      </div>
     </div>
   );
 }
