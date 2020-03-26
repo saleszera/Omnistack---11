@@ -13,6 +13,12 @@ export default function Profile() {
 
   const history = useHistory();
 
+  if (ongId === null || ongName === null) {
+    alert('É necessário estar logado!');
+
+    history.push('/');
+  }
+
   const [incidents, setIncidents] = useState([]);
 
   useEffect(() => {
