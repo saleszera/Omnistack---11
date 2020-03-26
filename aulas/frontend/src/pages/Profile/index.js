@@ -57,8 +57,6 @@ export default function Profile() {
     setPage(nextPage);
   }
 
-  console.log(page);
-
   return (
     <div className="profile-container">
       <header>
@@ -102,13 +100,19 @@ export default function Profile() {
       <div className="button-container">
         <button
           type="button"
+          className="button"
           onClick={() => handleClick('back')}
           disabled={page < 2}
         >
-          <FiArrowLeft size={25} />
+          <FiArrowLeft size={25} color="#FFF" />
         </button>
-        <button type="button">
-          <FiArrowRight size={25} onClick={() => handleClick('next')} />
+        <button
+          type="button"
+          className="button"
+          onClick={() => handleClick('next')}
+          disabled={(incidents.length !== 4) === true}
+        >
+          <FiArrowRight size={25} color="#FFF" />
         </button>
       </div>
     </div>
