@@ -7,6 +7,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  animation: fade 400ms;
 }
 
 .register-container .content{
@@ -44,7 +46,7 @@
 
 .register-container .content form input{
   margin-top: 8px;
-  color: #41414d;
+
 }
 
 .register-container .content form .input-group{
@@ -55,3 +57,13 @@
   margin-left: 8px;
 }
 
+@keyframes fade{
+  from{
+      opacity: 0;
+      transform: scale(0.9);
+  }
+  to{
+      opacity: 1;
+      transform: scale(1);
+  }
+}

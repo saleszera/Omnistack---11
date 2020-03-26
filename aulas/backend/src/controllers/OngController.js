@@ -10,8 +10,6 @@ class OngController {
       .select('*')
       .first();
 
-    console.log(ong);
-
     if (ong) {
       return res.status(400).json({ Error: 'ONG already exists!' });
     }
@@ -33,7 +31,7 @@ class OngController {
   async index(req, res) {
     const { page = 1 } = req.query;
     const ongs = await connection('ongs')
-      .limit(5)
+      .limit(4)
       .offset((page - 1) * 5)
       .select('*');
 

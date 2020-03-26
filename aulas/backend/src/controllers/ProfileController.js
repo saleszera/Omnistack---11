@@ -3,12 +3,13 @@ import connection from '../database/connection';
 class ProfileController {
   async index(req, res) {
     const ong_id = req.headers.authorization;
-    console.log(ong_id);
+    const { page = 1 } = req.query;
+
     const incidents = await connection('incidents')
       .where('ong_id', ong_id)
+      .limit(4)
+      .offset((page - 1) * 5)
       .select('*');
-
-    console.log(incidents);
 
     return res.json(incidents);
   }

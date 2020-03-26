@@ -7,6 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: fade 400ms;
 }
 
 .new-incident-container .content{
@@ -45,5 +46,16 @@
 .new-incident-container .content form input,
 .new-incident-container .content form textarea{
   margin-top: 8px;
+}
+
+@keyframes fade{
+  from{
+      opacity: 0;
+      transform: scale(0.9);
+  }
+  to{
+      opacity: 1;
+      transform: scale(1);
+  }
 }
 
