@@ -14,17 +14,43 @@
 
 <h2>Requisitos para utilização da API</h2>
 <ul>
-  <li>NodeJS (recomendavel instalar versão LTS): https://nodejs.org/en/download/</li>
-  <li>Insomnia (Para testar as rotas): https://insomnia.rest/</li>
+  <li>NodeJS (<strong>recomendavel instalar versão LTS</strong>>): https://nodejs.org/en/download/</li>
+  <li>Insomnia (<strong>Para testar as rotas</strong>): https://insomnia.rest/</li>
 </ul>
 
-<h2>Como utilizar</h2>
+<h2>Ferramentas utilizadas</h2>
 <ul>
-  <li>Com o comando "npm start" é iniciada a aplicação</li>
-  <li>Após a inicialização basta testar as rotas que estão em ./src/routes.js utilizando o insomnia</li>
+  <li>Conexão com serviços externos: <strong>cors</strong></li>
+  <li>Criação do servidor e das rotas: <strong>express</strong></li>
+  <li>Reload automatico: <strong>nodemon</strong></li>
+  <li>Uso do import/export: <strong>sucrase</strong></li>
+  <li>Conexão com banco de dados: <strong>knex</strong></li>
+  <li>Gerar ID aleatória: <strong>crypto</strong></li>
+</ul>
+
+<h2>Scripts disponíveis</h2>
+<ul>
+  <li>npm start: inicializa a aplicação na porta 3333</li>
+  <li>Após a inicialização basta testar as rotas que estão em <strong>./src/routes.js</strong>> utilizando "http://localhost:3333/(rotas)" no insomnia</li>
 </ul>
 
 <h1>Sobre o Font-end</h1>
-<p>Em construção...</p>
+<p>Front-end da aplicação "<strong>Be-The-Hero</strong>" finalizada!</p>
+<h2>Ferramentas utilizadas</h2>
+<ul>
+  <li>Conexão com o back-end: <strong>axios</strong></li>
+  <li>Para as rotas: <strong>BrowserRouter, Route, Switch</strong></li>  
+  <li>Para navegação: <strong>Link, useHistory</strong></li>
+  <li>Para armazenamento de estado: <strong>useState</strong></li>
+  <li>Para atualização da pagina: <strong>useEffect</strong></li>
+  <li>Para icones: <strong>react-icons</strong></li>
+</ul>
+
+<h2>Scripts disponíveis</h2>
+<ul>
+  <li><strong>yarn start</strong>: roda em modo de desenvolvimento. Abra no navegador no endereço "http://localhost:3000" <br></li>
+  <li><strong>yarn build</strong>: roda em modo de produção</li>
+</ul>
+
 <h1>Sobre o mobile</h1>
 <p>Em construção...</p>
