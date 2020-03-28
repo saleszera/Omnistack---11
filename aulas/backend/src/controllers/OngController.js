@@ -1,5 +1,5 @@
-import crypto from 'crypto';
 import connection from '../database/connection';
+import generateUniqueId from '../utils/generateUniqueId';
 
 class OngController {
   async create(req, res) {
@@ -14,7 +14,7 @@ class OngController {
       return res.status(400).json({ Error: 'ONG already exists!' });
     }
 
-    const id = crypto.randomBytes(4).toString('HEX');
+    const id = generateUniqueId();
 
     await connection('ongs').insert({
       id,
