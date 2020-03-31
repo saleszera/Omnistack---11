@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import MaskedInput from 'react-text-mask';
 import { Link, useHistory } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 import axios from 'axios';
@@ -24,6 +25,7 @@ export default function Register() {
       'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
     );
 
+    // ordenando UFs
     response.data.sort((a, b) => {
       if (a.sigla > b.sigla) {
         return 1;
@@ -69,6 +71,7 @@ export default function Register() {
     const response = await axios.get(
       `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${id}/municipios`
     );
+    // Ordenando cidades
     response.data.sort((a, b) => {
       if (a.sigla > b.sigla) {
         return 1;
@@ -115,10 +118,25 @@ export default function Register() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <input
-            type="text"
+          <MaskedInput
+            mask={[
+              '(',
+              /\d/,
+              /\d/,
+              ')',
+              ' ',
+              /\d/,
+              /\d/,
+              /\d/,
+              /\d/,
+              /\d/,
+              '-',
+              /\d/,
+              /\d/,
+              /\d/,
+              /\d/,
+            ]}
             placeholder="WhatsApp"
-            maxLength="15"
             value={whatsapp}
             onChange={(e) => setWhatsapp(e.target.value)}
           />
