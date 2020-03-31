@@ -88,6 +88,13 @@ export default function Register() {
     setCities(response.data);
   }
 
+  function handleFormatWhatsapp(phone) {
+    const p = /\d+/g;
+    const formatedPhone = phone.match(p);
+
+    setWhatsapp(formatedPhone.join(''));
+  }
+
   return (
     <div className="register-container">
       <div className="content">
@@ -124,7 +131,7 @@ export default function Register() {
               /\d/,
               /\d/,
               ')',
-              ' ',
+
               /\d/,
               /\d/,
               /\d/,
@@ -138,7 +145,7 @@ export default function Register() {
             ]}
             placeholder="WhatsApp"
             value={whatsapp}
-            onChange={(e) => setWhatsapp(e.target.value)}
+            onChange={(e) => handleFormatWhatsapp(e.target.value)}
           />
 
           <div className="input-select">
