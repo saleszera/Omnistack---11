@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
+import axios from 'axios';
 
 import api from '../../services/api';
+
 import logoImg from '../../assets/images/logo.svg';
 import './styles.css';
 
@@ -12,8 +14,32 @@ export default function Register() {
   const [whatsapp, setWhatsapp] = useState('');
   const [city, setCity] = useState('');
   const [uf, setUf] = useState('');
+  const [cities, setCities] = useState([]);
+  const [ufs, setUfs] = useState([]);
 
   const history = useHistory();
+
+  async function loadUf() {
+    const response = await axios.get(
+      'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
+    );
+
+    response.data.sort((a, b) => {
+      if (a.sigla > b.sigla) {
+        return 1;
+      }
+      if (b.sigla > a.sigla) {
+        return -1;
+      }
+      return 0;
+    });
+
+    setUfs(response.data);
+  }
+
+  useEffect(() => {
+    loadUf();
+  }, []);
 
   async function handleRegister(e) {
     e.preventDefault();
@@ -26,6 +52,8 @@ export default function Register() {
       uf,
     };
 
+    console.log(data);
+
     try {
       const response = await api.post('ongs', data);
 
@@ -35,6 +63,26 @@ export default function Register() {
     } catch (err) {
       alert('Erro no cadastro, tente novamente');
     }
+  }
+
+  async function handleLoadCity(id) {
+    const response = await axios.get(
+      `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${id}/municipios`
+    );
+    response.data.sort((a, b) => {
+      if (a.sigla > b.sigla) {
+        return 1;
+      }
+      if (b.sigla > a.sigla) {
+        return -1;
+      }
+      return 0;
+    });
+
+    const findUf = ufs.find((u) => u.id === Number(id));
+
+    setUf(findUf.sigla);
+    setCities(response.data);
   }
 
   return (
@@ -70,24 +118,34 @@ export default function Register() {
           <input
             type="text"
             placeholder="WhatsApp"
+            maxLength="15"
             value={whatsapp}
             onChange={(e) => setWhatsapp(e.target.value)}
           />
 
-          <div className="input-group">
-            <input
-              type="text"
-              placeholder="Cidade"
-              value={city}
+          <div className="input-select">
+            <select
+              name="uf"
+              id="uf"
+              onChange={(e) => handleLoadCity(e.target.value)}
+            >
+              {ufs.map((u) => (
+                <option key={u.id} value={u.id}>
+                  {u.sigla}
+                </option>
+              ))}
+            </select>
+            <select
+              name="city"
+              id="city"
               onChange={(e) => setCity(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="UF"
-              style={{ width: 80 }}
-              value={uf}
-              onChange={(e) => setUf(e.target.value)}
-            />
+            >
+              {cities.map((c) => (
+                <option key={c.id} value={c.nome}>
+                  {c.nome}
+                </option>
+              ))}
+            </select>
           </div>
 
           <button className="button" type="submit">

@@ -37,6 +37,12 @@
 <h1>Sobre o Font-end</h1>
 <p>Front-end da aplicação "<strong>Be-The-Hero</strong>" finalizada!</p>
 <h2>Ferramentas utilizadas</h2>
+<h2>Requisitos para utilização da aplicação</h2>
+<ul>
+  <li>expo: npm install -g expo</li>
+  <li>Celular com android ou IOS ou emulador</li>
+</ul>
+
 <ul>
   <li>Conexão com o back-end: <strong>axios</strong></li>
   <li>Para as rotas: <strong>BrowserRouter, Route, Switch</strong></li>  
@@ -44,6 +50,7 @@
   <li>Para armazenamento de estado: <strong>useState</strong></li>
   <li>Para atualização da pagina: <strong>useEffect</strong></li>
   <li>Para icones: <strong>react-icons</strong></li>
+  <li>Formatação de moeda: <strong>Intl</strong></li>
 </ul>
 
 <h2>Scripts disponíveis</h2>
@@ -53,4 +60,23 @@
 </ul>
 
 <h1>Sobre o mobile</h1>
-<p>Em construção...</p>
+<p>Front-end da aplicação "<strong>Be-The-Hero</strong>" finalizada!</p>
+<p>Aqui o usuário pode visualizar todos os casos abertos pelas ONGS e é possível entrar em contato com a mesma por meio de e-mail ou WhatsApp</p>
+
+<h2>Ferramentas/metodologias utilizadas</h2>
+<ul>
+  <li>Conexão com back-end: <strong>axios</strong></li>
+  <li>Navegação entre paginas: <strong>NavigationContainer, createStackNavigator, useNavigation</strong></li>
+  <li>Armazenamento de estado: <strong>useState</strong></li>
+  <li>Atualização da pagina: <strong>useEffect</strong></li>
+  <li>Para icones: <strong>Feather do @expo/vector-icons</strong></li>
+  <li>Formatação de moeda: <strong>Intl</strong></li>
+  <li>Para envio de e-mail: <strong>MailComposer do expo-mail-composer</strong></li>
+</ul>
+<h2>Scripts disponíveis</h2>
+<ul>
+  <li><strong>expo start</strong>: inicia a aplicação</li>
+  <li><strong>expo start</strong>: --android: Inicia a aplicação no android</li>
+  <li><strong>expo start</strong>: --ios: Inicia a aplicação no IOS</li>
+  <li><strong>expo start</strong>: --web: Inicia a aplicação na web</li>
+</ul>

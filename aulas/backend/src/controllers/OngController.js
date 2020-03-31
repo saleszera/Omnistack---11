@@ -43,7 +43,7 @@ class OngController {
     const { id } = req.params;
 
     const ong = await connection('ongs').where('id', id).select('id').first();
-    console.log(ong);
+
     if (!ong) {
       return res.status(404).json({ Error: 'Not found!' });
     }
