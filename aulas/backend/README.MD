@@ -19,5 +19,5 @@
 ###### Scripts disponíveis
 
 - npm start: inicializa a aplicação na porta 3333
-- Após a inicialização basta testar as rotas que estão em <strong>./src/routes.js</strong>> utilizando "http://localhost:3333/(rotas)" no insomnia
+- Após a inicialização basta testar as rotas que estão [aqui](https://github.com/saleszera/Omnistack-11/blob/master/aulas/backend/src/routes.js) utilizando "http://localhost:3333/(rotas)" no insomnia
 
