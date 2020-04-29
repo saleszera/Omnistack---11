@@ -20,4 +20,4 @@
 - **yarn start**: roda em modo de desenvolvimento. Abra no navegador no endereço ```http://localhost:3000``` <br>
 - **yarn build**: roda em modo de produção
 
-[Voltar para o inicio](https://github.com/saleszera/Omnistack-11)
+[Voltar para inicio](https://github.com/saleszera/Omnistack-11)
