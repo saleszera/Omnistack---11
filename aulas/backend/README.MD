@@ -21,4 +21,4 @@
 - npm start: inicializa a aplicação na porta 3333
 - Após a inicialização basta testar as rotas utilizando o Insomnia. As rotas estão que estão [aqui](https://github.com/saleszera/Omnistack-11/blob/master/aulas/backend/src/routes.js).<br>**Exemplo de rota:** ```http://localhost:3333/ongs```
 
-[Voltar para o inicio](https://github.com/saleszera/Omnistack-11)
+[Voltar para inicio](https://github.com/saleszera/Omnistack-11)
