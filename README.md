@@ -26,7 +26,7 @@ Aqui o usuário pode visualizar todos os casos cadastrados pelas ONGS e é poss�
 
 ## Extras :bulb:
 
-Toda aplicação que faço em aula tento ir além e colocar algo a mais, acredito que isso deixa a minha marca e torna o projeto bem mais pessoal. Os extras podem ser visualizados no final do README de todos os tópicos acima citados, entretanto, há ferramentas que utilizei em todo o projeto, veja quais são abaixo:
+Toda aplicação que faço em aula tento ir além e colocar algo a mais, acredito que isso deixa a minha marca e torna o projeto bem mais pessoal. Os extras podem ser visualizados no README de todos os tópicos acima citados, entretanto, há ferramentas que utilizei em todo o projeto, veja quais são abaixo:
 
 - **eslint/prettier**: Para organização do código.
 - **editorconfig**: Para padronização de editores.
