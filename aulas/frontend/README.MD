@@ -1,4 +1,4 @@
-# Front-end
+# Front-end BE-THE-HERO!
 ###### Requisitos para utilização da aplicação
 
 - expo: npm install -g expo
