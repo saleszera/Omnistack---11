@@ -1,10 +1,5 @@
 # Front-end BE-THE-HERO!
 
-##### Requisitos para utilização da aplicação :warning:
-
-- expo: ```npm install -g expo```
-- Celular com android ou IOS ou emulador
-
 ##### Ferramentas utilizadas :wrench:
 
 - Conexão com o back-end: **axios**
