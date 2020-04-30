@@ -1,10 +1,11 @@
 # Front-end BE-THE-HERO!
-###### Requisitos para utilização da aplicação
 
-- expo: npm install -g expo
+##### Requisitos para utilização da aplicação :warning:
+
+- expo: ```npm install -g expo```
 - Celular com android ou IOS ou emulador
 
-
+##### Ferramentas utilizadas :wrench:
 
 - Conexão com o back-end: **axios**
 - Para as rotas: **BrowserRouter, Route, Switch**
@@ -15,7 +16,7 @@
 - Formatação de moeda: **Intl**
 
 
-###### Scripts disponíveis
+##### Scripts disponíveis :scroll:
 
 - **yarn start**: roda em modo de desenvolvimento. Abra no navegador no endereço ```http://localhost:3000``` <br>
 - **yarn build**: roda em modo de produção
